@@ -52,7 +52,21 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  fonts:
+  - family: montserrat
+    fonts:
+      - asset: lib/styles/font/Montserrat-Regular.ttf
+      - asset: lib/styles/font/Montserrat-Italic.ttf
+        style: italic
+      - asset: lib/styles/font/Montserrat-Bold.ttf
+        weight: 600
+  - family: sourcesanspro
+    fonts:
+      - asset: lib/styles/font/SourceSansPro-Regular.ttf
+      - asset: lib/styles/font/SourceSansPro-Italic.ttf
+        style: italic
+      - asset: lib/styles/font/SourceSansPro-Bold.ttf
+        weight: 600
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
