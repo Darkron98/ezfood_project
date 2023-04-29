@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  remixicon: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -55,17 +56,17 @@ flutter:
   fonts:
   - family: montserrat
     fonts:
-      - asset: lib/styles/font/Montserrat-Regular.ttf
-      - asset: lib/styles/font/Montserrat-Italic.ttf
+      - asset: lib/src/styles/font/Montserrat-Regular.ttf
+      - asset: lib/src/styles/font/Montserrat-Italic.ttf
         style: italic
-      - asset: lib/styles/font/Montserrat-Bold.ttf
+      - asset: lib/src/styles/font/Montserrat-Bold.ttf
         weight: 600
   - family: sourcesanspro
     fonts:
-      - asset: lib/styles/font/SourceSansPro-Regular.ttf
-      - asset: lib/styles/font/SourceSansPro-Italic.ttf
+      - asset: lib/src/styles/font/SourceSansPro-Regular.ttf
+      - asset: lib/src/styles/font/SourceSansPro-Italic.ttf
         style: italic
-      - asset: lib/styles/font/SourceSansPro-Bold.ttf
+      - asset: lib/src/styles/font/SourceSansPro-Bold.ttf
         weight: 600
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
