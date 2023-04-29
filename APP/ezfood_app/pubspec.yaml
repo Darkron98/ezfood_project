@@ -54,14 +54,14 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   fonts:
-  - family: montserrat
+  - family: Montserrat
     fonts:
       - asset: lib/src/styles/font/Montserrat-Regular.ttf
       - asset: lib/src/styles/font/Montserrat-Italic.ttf
         style: italic
       - asset: lib/src/styles/font/Montserrat-Bold.ttf
         weight: 600
-  - family: sourcesanspro
+  - family: SourceSanspro
     fonts:
       - asset: lib/src/styles/font/SourceSansPro-Regular.ttf
       - asset: lib/src/styles/font/SourceSansPro-Italic.ttf
