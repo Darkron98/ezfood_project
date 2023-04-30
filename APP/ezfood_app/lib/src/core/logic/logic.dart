@@ -5,5 +5,6 @@ double getWith(BuildContext context) {
 }
 
 double getHeigth(BuildContext context) {
-  return MediaQuery.of(context).size.height;
+  return MediaQuery.of(context).size.height -
+      MediaQuery.of(context).padding.top;
 }

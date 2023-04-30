@@ -19,4 +19,22 @@ class TextStyles {
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
+  final appTittle = const TextStyle(
+    fontFamily: 'Montserrat',
+    color: Palette.background,
+    fontSize: 48,
+    fontWeight: FontWeight.bold,
+  );
+  final homeTittle = const TextStyle(
+    fontFamily: 'Montserrat',
+    color: Palette.complementaryText,
+    fontSize: 80,
+    fontWeight: FontWeight.bold,
+  );
+  final homeSubTittle = const TextStyle(
+    fontFamily: 'Montserrat',
+    color: Palette.complementaryText,
+    fontSize: 36,
+    fontWeight: FontWeight.bold,
+  );
 }
