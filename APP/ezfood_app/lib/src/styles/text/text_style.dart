@@ -15,7 +15,7 @@ class TextStyles {
   );
   final buttonText = const TextStyle(
     fontFamily: 'Montserrat',
-    color: Colors.white,
+    color: Palette.background,
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );

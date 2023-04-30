@@ -29,7 +29,7 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 Container(
                   width: double.infinity,
-                  height: getHeigth(context) * 0.3,
+                  height: getHeigth(context) * 0.2,
                   padding: const EdgeInsets.only(right: 18, bottom: 9),
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -41,14 +41,14 @@ class Home extends StatelessWidget {
                       ],
                     ),
                     borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(80),
+                      bottomRight: Radius.circular(60),
                     ),
                   ),
                   child: Container(
                     decoration: const BoxDecoration(
                       color: Palette.background,
                       borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(70),
+                        bottomRight: Radius.circular(50),
                       ),
                     ),
                     child: Padding(
@@ -56,8 +56,8 @@ class Home extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Image(
-                            height: 120,
+                          Image(
+                            width: getWith(context) * 0.38,
                             image: AssetImage('assets/ez_logo_color.png'),
                           ),
                           SizedBox(
@@ -89,10 +89,10 @@ class Home extends StatelessWidget {
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    top: getHeigth(context) * 0.20,
+                    top: getHeigth(context) * 0.3,
                   ),
                   width: getWith(context) * 0.5,
-                  height: getHeigth(context) * 0.7,
+                  height: getHeigth(context) * 0.8,
                   decoration: const BoxDecoration(),
                   child: GridView.count(
                     crossAxisCount: 2,
