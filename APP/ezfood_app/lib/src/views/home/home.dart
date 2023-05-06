@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../core/logic/logic.dart';
 import '../../core/packages/packages.dart';
 import '../../styles/styles.dart';
+import '../shared/shared.dart';
+import 'widgets/widgets_home.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -25,7 +27,7 @@ class Home extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
                   width: double.infinity,
@@ -51,93 +53,51 @@ class Home extends StatelessWidget {
                         bottomRight: Radius.circular(50),
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image(
-                            width: getWith(context) * 0.38,
-                            image: AssetImage('assets/ez_logo_color.png'),
-                          ),
-                          SizedBox(
-                            height: 86.5,
-                            child: Row(
-                              children: [
-                                Text(
-                                  'EZ',
-                                  style: TextStyles().homeTittle,
-                                ),
-                                Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const SizedBox(),
-                                    Text(
-                                      'Food',
-                                      style: TextStyles().homeSubTittle,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: const HomeTittle(),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(
-                    top: getHeigth(context) * 0.3,
-                  ),
-                  width: getWith(context) * 0.5,
+                  /* padding: EdgeInsets.only(
+                    top: getHeigth(context) * 0.25,
+                  ), */
                   height: getHeigth(context) * 0.8,
                   decoration: const BoxDecoration(),
-                  child: GridView.count(
-                    crossAxisCount: 2,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
-                        onTap: () =>
-                            Navigator.of(context).pushNamed('catalogo'),
-                        child: SizedBox(
-                          width: 80,
-                          height: 100,
-                          child: Column(
-                            children: [
-                              const Icon(
-                                Remix.pantone_line,
-                                size: 70,
-                                color: Palette.background,
-                              ),
-                              Text(
-                                'Catalogo',
-                                style: TextStyles().buttonText,
-                              ),
-                            ],
-                          ),
+                      const SizedBox(),
+                      SizedBox(
+                        width: getWith(context) * 0.5,
+                        height: getHeigth(context) * 0.3,
+                        child: GridView.count(
+                          mainAxisSpacing: 20,
+                          crossAxisSpacing: 20,
+                          crossAxisCount: 2,
+                          children: const [
+                            HomeItem(
+                              label: 'Catalogo',
+                              icon: Remix.pantone_line,
+                              route: 'catalogo',
+                            ),
+                            HomeItem(
+                              label: 'Pedidos',
+                              icon: Remix.list_check,
+                              route: 'pedidos',
+                            ),
+                            HomeItem(
+                              label: 'Mesas',
+                              icon: Remix.keynote_line,
+                              route: 'mesas',
+                            ),
+                            HomeItem(
+                              label: 'Personal',
+                              icon: Remix.group_line,
+                              route: 'personal',
+                            ),
+                          ],
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () => Navigator.of(context).pushNamed('Pedidos'),
-                        child: SizedBox(
-                          width: 70,
-                          height: 100,
-                          child: Column(
-                            children: [
-                              const Icon(
-                                Remix.list_check,
-                                size: 70,
-                                color: Palette.background,
-                              ),
-                              Text(
-                                'Pedidos',
-                                style: TextStyles().buttonText,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      const BottomBar(),
                     ],
                   ),
                 ),
