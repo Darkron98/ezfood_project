@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:ezfood_app/firebase_options.dart';
-
 //metodo para inicializar datos de firebase
 
 Future<void> initializeFirebase() async {
@@ -42,9 +40,9 @@ void main() async {
   await printCollection('categoria');
 
   //insertando un nuevo documento en la colección 'categoria'
-  Map<String, dynamic> newData = {
+/*  Map<String, dynamic> newData = {
     'id': 'bandeja paisa',
     'descripcion': 'con adicion de frijoles'
   };
-  await insertDocument('categoria', newData);
+  await insertDocument('categoria', newData);*/
 }
