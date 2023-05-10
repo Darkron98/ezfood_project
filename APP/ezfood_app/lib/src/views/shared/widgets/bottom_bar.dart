@@ -6,7 +6,16 @@ import '../../../styles/styles.dart';
 class BottomBar extends StatelessWidget {
   const BottomBar({
     super.key,
+    required this.leftIcon,
+    required this.rightIcon,
+    this.leftTap,
+    this.rightTap,
   });
+
+  final IconData leftIcon;
+  final IconData rightIcon;
+  final void Function()? leftTap;
+  final void Function()? rightTap;
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +38,9 @@ class BottomBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed('/'),
-              child: const Icon(
-                Remix.logout_circle_line,
+              onTap: leftTap,
+              child: Icon(
+                leftIcon,
                 size: 30,
                 color: Palette.complementaryText,
               ),
@@ -42,10 +51,13 @@ class BottomBar extends StatelessWidget {
                 color: Palette.complementaryText,
               ),
             ),
-            const Icon(
-              Remix.settings_3_fill,
-              size: 30,
-              color: Palette.complementaryText,
+            GestureDetector(
+              onTap: rightTap,
+              child: Icon(
+                rightIcon,
+                size: 30,
+                color: Palette.complementaryText,
+              ),
             ),
           ],
         ),

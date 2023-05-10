@@ -97,7 +97,12 @@ class Home extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const BottomBar(),
+                      BottomBar(
+                        leftIcon: Remix.logout_circle_line,
+                        rightIcon: Remix.settings_3_fill,
+                        leftTap: () => Navigator.of(context).pushNamed('/'),
+                        rightTap: () {},
+                      ),
                     ],
                   ),
                 ),
