@@ -56,6 +56,19 @@ class TextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  final snackText = const TextStyle(
+    fontFamily: 'Montserrat',
+    color: Colors.white,
+    fontSize: 24,
+  );
+
+  final subTittle = const TextStyle(
+    fontFamily: 'Montserrat',
+    color: Palette.background,
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
+
   GradientText gradientText(
     String text,
   ) {
