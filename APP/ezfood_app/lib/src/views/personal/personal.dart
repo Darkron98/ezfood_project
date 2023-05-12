@@ -99,7 +99,7 @@ class Personal extends StatelessWidget {
                                       size: 9,
                                       activeColor:
                                           Color.fromARGB(255, 252, 185, 68),
-                                      color: Palette.background)),
+                                      color: Palette.paginationColor)),
                             ),
                           ),
                         ]),
