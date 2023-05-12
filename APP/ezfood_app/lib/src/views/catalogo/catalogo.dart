@@ -107,7 +107,7 @@ void itemModal(BuildContext context) {
                       iconSize: 20,
                       icon: const Icon(
                         Remix.delete_bin_7_line,
-                        color: Colors.grey,
+                        color: Palette.complementaryText,
                       ),
                     ),
                   ],
@@ -127,6 +127,7 @@ void itemModal(BuildContext context) {
                       color: const Color.fromARGB(255, 224, 224, 224),
                       borderRadius: BorderRadius.circular(10)),
                   child: TextField(
+                    cursorColor: Palette.complementary,
                     keyboardType: TextInputType.multiline,
                     maxLines: 10,
                     decoration: InputDecoration(
@@ -144,14 +145,20 @@ void itemModal(BuildContext context) {
                   children: [
                     Row(
                       children: [
-                        const Text('PU'),
+                        Text(
+                          'PU',
+                          style: TextStyles().modalTittle,
+                        ),
                         const SizedBox(width: 5),
                         Container(
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: const Color.fromARGB(255, 240, 240, 240),
                               borderRadius: BorderRadius.circular(2)),
-                          child: const Text('COP\$ 18,000'),
+                          child: Text(
+                            'COP\$ 18,000',
+                            style: TextStyles().totalPrice,
+                          ),
                         ),
                       ],
                     ),
@@ -233,16 +240,28 @@ void cartModal(BuildContext context) {
                   child: ListTile(
                     leading: const Padding(
                       padding: EdgeInsets.only(top: 8),
-                      child: Icon(Remix.restaurant_2_fill),
+                      child: Icon(
+                        Remix.restaurant_2_fill,
+                        color: Palette.complementaryText,
+                      ),
                     ),
                     trailing: GestureDetector(
                       onTap: () {
                         itemModal(context);
                       },
-                      child: const Icon(Remix.edit_line),
+                      child: const Icon(
+                        Remix.edit_line,
+                        color: Palette.complementaryText,
+                      ),
                     ),
-                    title: Text('Item $i'),
-                    subtitle: const Text('COP\$ 18,000'),
+                    title: Text(
+                      'Item $i',
+                      style: TextStyles().listTiletittle,
+                    ),
+                    subtitle: Text(
+                      'COP\$ 18,000',
+                      style: TextStyles().listTilesubtittle,
+                    ),
                   ),
                 ),
                 itemCount: 5,
@@ -259,14 +278,20 @@ void cartModal(BuildContext context) {
               children: [
                 Row(
                   children: [
-                    const Text('Total'),
+                    Text(
+                      'Total',
+                      style: TextStyles().modalTittle,
+                    ),
                     const SizedBox(width: 5),
                     Container(
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 240, 240, 240),
                           borderRadius: BorderRadius.circular(2)),
-                      child: const Text('COP\$ 50,000'),
+                      child: Text(
+                        'COP\$ 50,000',
+                        style: TextStyles().totalPrice,
+                      ),
                     ),
                   ],
                 ),

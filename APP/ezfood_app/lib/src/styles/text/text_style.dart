@@ -13,6 +13,11 @@ class TextStyles {
     color: Palette.complementaryText,
     fontSize: 16,
   );
+  final formTextLigth = const TextStyle(
+    fontFamily: 'SourceSanspro',
+    color: Palette.background,
+    fontSize: 16,
+  );
   final cardText = const TextStyle(
     fontFamily: 'SourceSanspro',
     color: Palette.complementaryText,
@@ -61,7 +66,22 @@ class TextStyles {
     color: Colors.white,
     fontSize: 24,
   );
-
+  final listTiletittle = const TextStyle(
+    fontFamily: 'SourceSanspro',
+    color: Palette.complementaryText,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
+  final listTilesubtittle = const TextStyle(
+    fontFamily: 'SourceSanspro',
+    color: Palette.complementaryText,
+    fontSize: 14,
+  );
+  final totalPrice = const TextStyle(
+    fontFamily: 'SourceSanspro',
+    color: Palette.complementaryText,
+    fontSize: 18,
+  );
   final subTittle = const TextStyle(
     fontFamily: 'Montserrat',
     color: Palette.background,

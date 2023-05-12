@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AppServices {
-  //GET METHODS
+  //GET METHODS:
   Future<void> getPlato() async {
     List result = [];
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('plato').get();
-    querySnapshot.docs.forEach((doc) {
+    for (var doc in querySnapshot.docs) {
       result.add(doc.data());
-    });
+    }
     print(result[0]['nombre']);
   }
 
@@ -16,9 +16,9 @@ class AppServices {
     List result = [];
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('pedido').get();
-    querySnapshot.docs.forEach((doc) {
+    for (var doc in querySnapshot.docs) {
       result.add(doc.data());
-    });
+    }
     print(result);
   }
 
@@ -26,9 +26,9 @@ class AppServices {
     List result = [];
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('tipo_empleado').get();
-    querySnapshot.docs.forEach((doc) {
+    for (var doc in querySnapshot.docs) {
       result.add(doc.data());
-    });
+    }
     print(result);
   }
 
@@ -36,9 +36,9 @@ class AppServices {
     List result = [];
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('empleado').get();
-    querySnapshot.docs.forEach((doc) {
+    for (var doc in querySnapshot.docs) {
       result.add(doc.data());
-    });
+    }
     print(result);
   }
 

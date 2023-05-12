@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'src/core/services/connection.dart';
+import 'src/core/connection/connection.dart';
 import 'src/main_app.dart';
 
 Future<void> main() async {

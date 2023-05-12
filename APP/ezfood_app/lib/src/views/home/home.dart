@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/logic/logic.dart';
 import '../../core/packages/packages.dart';
-import '../../core/services/connection.dart';
+import '../../core/connection/connection.dart';
 import '../../styles/styles.dart';
 import '../shared/shared.dart';
 import 'widgets/widgets_home.dart';
