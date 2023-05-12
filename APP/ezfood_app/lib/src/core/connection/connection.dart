@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import '../services/app_services.dart';
+//import '../services/app_services.dart';
 
 Future<void> initializeFirebase() async {
   await Firebase.initializeApp(
@@ -18,8 +18,8 @@ Future<void> initializeFirebase() async {
 // main de prueba pra mostrar los datos de la base de datos
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await getPedido();
   /* 
+  await AppServices().getPedido();
   await getPlato();
   await insertCategoria();
   await insertPlato();
