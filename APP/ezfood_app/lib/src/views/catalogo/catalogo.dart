@@ -58,8 +58,9 @@ class Catalogo extends StatelessWidget {
               SizedBox(height: heigth * 0.02),
               BottomBar(
                 leftIcon: Remix.arrow_left_s_line,
-                rightIcon: Remix.check_line,
+                rightIcon: Remix.settings_3_fill,
                 leftTap: () => Navigator.of(context).pop(),
+                rightTap: () {},
               ),
             ],
           ),

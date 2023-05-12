@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:money_formatter/money_formatter.dart';
 
 double getWith(BuildContext context) {
   return MediaQuery.of(context).size.width;
@@ -9,12 +10,7 @@ double getHeigth(BuildContext context) {
       MediaQuery.of(context).padding.top;
 }
 
-String format(double amount) {
-  /* NumberFormat moneyFormatter = NumberFormat.currency(
-      locale: 'es', // Establece la localización adecuada para el formato
-      symbol: '\$', // Símbolo de la moneda (opcional)
-    ); */
-
-  /* String formattedAmount = moneyFormatter.format(amount); */
-  return '';
+String moneyFormat(double amount) {
+  MoneyFormatter mf = MoneyFormatter(amount: amount);
+  return mf.output.symbolOnLeft;
 }
