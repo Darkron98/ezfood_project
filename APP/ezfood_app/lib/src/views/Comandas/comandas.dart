@@ -6,8 +6,8 @@ import '../../core/packages/packages.dart';
 import '../../styles/styles.dart';
 import '../shared/shared.dart';
 
-class Catalogo extends StatelessWidget {
-  const Catalogo({super.key});
+class Comandas extends StatelessWidget {
+  const Comandas({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,30 +29,59 @@ class Catalogo extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Tittle(size: heigth),
-              SizedBox(
-                height: heigth * 0.7,
-                width: double.infinity,
-                child: Column(
-                  children: [
-                    Container(
-                      height: 70,
-                      width: width * 0.9,
-                      padding: const EdgeInsets.only(top: 5),
-                      child: const CategoryList(),
+              _Tittle(size: heigth),
+              SizedBox(height: heigth * 0.02),
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Container(
+                  height: heigth * 0.68,
+                  width: double.infinity,
+                  padding: EdgeInsets.only(left: 8, top: 8, bottom: 8),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      bottomLeft: Radius.circular(25),
                     ),
-                    Container(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 4, right: 30, left: 30),
-                      alignment: Alignment.centerRight,
-                      child: const CartWidget(),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
                     ),
-                    const Divider(),
-                    Menu(
-                      heigth: heigth,
-                      width: width,
+                    child: Scrollbar(
+                      thickness: 6,
+                      thumbVisibility: true,
+                      radius: const Radius.circular(3),
+                      child: ListView.separated(
+                        padding: const EdgeInsets.only(right: 12),
+                        physics: const BouncingScrollPhysics(),
+                        itemBuilder: (context, i) => Container(
+                          height: 70,
+                          decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 240, 240, 240),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: ListTile(
+                            leading: const Padding(
+                              padding: EdgeInsets.only(top: 8),
+                              child: Icon(Remix.restaurant_2_fill),
+                            ),
+                            trailing: GestureDetector(
+                              onTap: () {
+                                comandaModal(context);
+                              },
+                              child: const Icon(Remix.search_eye_line),
+                            ),
+                            title: Text('Mesa ${i + 1}'),
+                            subtitle: const Text('COP\$ 18,000'),
+                          ),
+                        ),
+                        itemCount: 20,
+                        separatorBuilder: (BuildContext context, int index) =>
+                            const Divider(),
+                      ),
                     ),
-                  ],
+                  ),
                 ),
               ),
               SizedBox(height: heigth * 0.02),
@@ -69,7 +98,7 @@ class Catalogo extends StatelessWidget {
   }
 }
 
-void itemModal(BuildContext context) {
+void _itemModal(BuildContext context) {
   showModalBottomSheet(
     context: context,
     backgroundColor: Colors.transparent,
@@ -175,7 +204,7 @@ void itemModal(BuildContext context) {
   );
 }
 
-void cartModal(BuildContext context) {
+void comandaModal(BuildContext context) {
   showModalBottomSheet(
     isScrollControlled: true,
     context: context,
@@ -236,7 +265,7 @@ void cartModal(BuildContext context) {
                     ),
                     trailing: GestureDetector(
                       onTap: () {
-                        itemModal(context);
+                        _itemModal(context);
                       },
                       child: const Icon(Remix.edit_line),
                     ),
@@ -288,206 +317,8 @@ void cartModal(BuildContext context) {
   );
 }
 
-class Menu extends StatelessWidget {
-  const Menu({
-    super.key,
-    required this.heigth,
-    required this.width,
-  });
-
-  final double heigth;
-  final double width;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: heigth * 0.485,
-      width: width * 0.9,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: GridView.builder(
-          itemCount: 20,
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (BuildContext context, int i) => Container(
-            decoration: BoxDecoration(
-                color: Palette.background,
-                borderRadius: BorderRadius.circular(10)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                      ),
-                      child: SizedBox(
-                        child: Image(
-                          image: NetworkImage(
-                              'https://comidasamericanas.net/wp-content/uploads/2021/10/Hamburguesas-americanas-1.jpg'),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5, top: 2),
-                      child: Text(
-                        'Cangreburger',
-                        style: TextStyles().menuItemTittle,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 2, left: 5),
-                      child: Text(
-                        'COP\$ 18,000',
-                        style: TextStyles().menuPrice,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        customSnackbar(context,
-                            message: 'Item añadido',
-                            color: Palette.complementary);
-                      },
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.bottomRight,
-                            end: Alignment.topLeft,
-                            colors: [
-                              Palette.primary,
-                              Palette.complementary,
-                            ],
-                          ),
-                          borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(10),
-                            topLeft: Radius.circular(10),
-                          ),
-                        ),
-                        child: const Icon(
-                          Remix.add_line,
-                          size: 30,
-                          color: Palette.background,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15,
-            mainAxisSpacing: 15,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CartWidget extends StatelessWidget {
-  const CartWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          'Menú',
-          style: TextStyles().subTittle,
-        ),
-        GestureDetector(
-            onTap: () {
-              cartModal(context);
-            },
-            child: const Icon(
-              Remix.shopping_cart_line,
-              color: Palette.background,
-              size: 40,
-            )),
-      ],
-    );
-  }
-}
-
-class CategoryList extends StatelessWidget {
-  const CategoryList({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: ListView.separated(
-        physics: const BouncingScrollPhysics(),
-        itemCount: 20,
-        scrollDirection: Axis.horizontal,
-        separatorBuilder: (BuildContext context, int i) =>
-            const SizedBox(width: 10),
-        itemBuilder: (BuildContext context, int i) => GestureDetector(
-          onTap: () {},
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Container(
-              width: 120,
-              height: 60,
-              decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Palette.complementaryText,
-                      blurRadius: 7,
-                      spreadRadius: 1,
-                      offset: Offset(0, 4))
-                ],
-                color: Palette.background,
-              ),
-              child: ClipRRect(
-                child: Column(
-                  children: [
-                    Container(
-                      width: 120,
-                      height: 45,
-                      decoration: const BoxDecoration(color: Colors.blue),
-                    ),
-                    Container(
-                      width: 120,
-                      height: 15,
-                      decoration:
-                          const BoxDecoration(color: Palette.background),
-                      child: Text(
-                        'Category $i',
-                        textAlign: TextAlign.center,
-                        style: TextStyles().cardText,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Tittle extends StatelessWidget {
-  const Tittle({
-    super.key,
+class _Tittle extends StatelessWidget {
+  const _Tittle({
     required this.size,
   });
   final double size;
@@ -520,7 +351,7 @@ class Tittle extends StatelessWidget {
         alignment: Alignment.topLeft,
         child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextStyles().gradientText('Catalogo')),
+            child: TextStyles().gradientText('Comandas')),
       ),
     );
   }

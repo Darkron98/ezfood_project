@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 //metodo para inicializar datos de firebase
 
 Future<void> initializeFirebase() async {
-  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
       appId: '1:527839607631:android:3443643e896c1e26e9233a',
@@ -32,17 +31,29 @@ Future<void> insertDocument(
   await FirebaseFirestore.instance.collection(collectionName).add(data);
 }
 
+Future<void> isertPlato() async {
+  Map<String, dynamic> newData = {
+    'id_categoria': 4,
+    'imagen':
+        'https://cdn.colombia.com/gastronomia/2011/08/02/bandeja-paisa-1616.gif',
+    'nombre': 'Bandeja paisa',
+    'precio': 20000,
+  };
+  await insertDocument('plato', newData);
+}
+
 // main de prueba pra mostrar los datos de la base de datos
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await initializeFirebase();
 
   // coleccion de la base de datos que queremos leer
   await printCollection('categoria');
-
+  await isertPlato();
   //insertando un nuevo documento en la colección 'categoria'
-/*  Map<String, dynamic> newData = {
+  /* Map<String, dynamic> newData = {
     'id': 'bandeja paisa',
     'descripcion': 'con adicion de frijoles'
   };
-  await insertDocument('categoria', newData);*/
+  await insertDocument('categoria', newData); */
 }

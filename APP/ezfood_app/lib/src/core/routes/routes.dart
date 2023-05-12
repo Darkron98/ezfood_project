@@ -7,5 +7,6 @@ Map<String, WidgetBuilder> getAppRoutes() {
     'login': (context) => const Login(),
     'home': (conttext) => const Home(),
     'catalogo': (context) => const Catalogo(),
+    'pedidos': (context) => const Comandas(),
   };
 }

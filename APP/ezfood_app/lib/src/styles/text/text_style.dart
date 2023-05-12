@@ -21,7 +21,7 @@ class TextStyles {
   final buttonText = const TextStyle(
     fontFamily: 'Montserrat',
     color: Palette.background,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.bold,
   );
   final appTittle = const TextStyle(
@@ -46,13 +46,13 @@ class TextStyles {
   final menuItemTittle = const TextStyle(
     fontFamily: 'Montserrat',
     color: Palette.complementaryText,
-    fontSize: 16,
+    fontSize: 14,
   );
 
   final menuPrice = const TextStyle(
     fontFamily: 'SourceSanspro',
     color: Palette.complementaryText,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.bold,
   );
 
@@ -65,6 +65,13 @@ class TextStyles {
   final subTittle = const TextStyle(
     fontFamily: 'Montserrat',
     color: Palette.background,
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
+
+  final modalTittle = const TextStyle(
+    fontFamily: 'Montserrat',
+    color: Palette.complementaryText,
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );

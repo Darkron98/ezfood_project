@@ -69,10 +69,10 @@ class Home extends StatelessWidget {
                       SizedBox(
                         width: getWith(context) * 0.5,
                         height: getHeigth(context) * 0.3,
-                        child: GridView.count(
-                          mainAxisSpacing: 20,
-                          crossAxisSpacing: 20,
-                          crossAxisCount: 2,
+                        child: Wrap(
+                          runSpacing: 20,
+                          spacing: 20,
+                          alignment: WrapAlignment.center,
                           children: const [
                             HomeItem(
                               label: 'Catalogo',
@@ -80,14 +80,9 @@ class Home extends StatelessWidget {
                               route: 'catalogo',
                             ),
                             HomeItem(
-                              label: 'Pedidos',
+                              label: 'Comandas',
                               icon: Remix.list_check,
                               route: 'pedidos',
-                            ),
-                            HomeItem(
-                              label: 'Mesas',
-                              icon: Remix.keynote_line,
-                              route: 'mesas',
                             ),
                             HomeItem(
                               label: 'Personal',
