@@ -472,26 +472,37 @@ class CategoryList extends StatelessWidget {
               width: 120,
               height: 60,
               decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Palette.complementaryText,
-                      blurRadius: 7,
-                      spreadRadius: 1,
-                      offset: Offset(0, 4))
-                ],
-                color: Palette.background,
+                color: Colors.transparent,
               ),
               child: ClipRRect(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       width: 120,
                       height: 45,
-                      decoration: const BoxDecoration(color: Colors.blue),
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.only(right: 15),
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.centerRight,
+                          colors: [
+                            Palette.paginationColor,
+                            Palette.lowOpCardColor,
+                            Palette.lowOpCardColor,
+                          ],
+                        ),
+                      ),
+                      child: const Icon(
+                        Remix.restaurant_fill,
+                        size: 50,
+                        color: Palette.paginationColor,
+                      ),
                     ),
                     Container(
                       width: 120,
-                      height: 15,
+                      height: 20,
                       decoration:
                           const BoxDecoration(color: Palette.background),
                       child: Text(
